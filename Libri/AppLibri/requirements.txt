@@ -1,0 +1,5 @@
+flask
+mysql-connector-python
+sib_api_v3_sdk
+confluent_kafka
+#librerie da importare che se le scrivi vicino a pip piange

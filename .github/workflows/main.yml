@@ -1,0 +1,122 @@
+name: Push e Build su Docker Hub v2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  buildapplibri:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: Libri/AppLibri/
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:Applibri
+
+  builddblibri:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: Libri/DbLibri/
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:Dblibri
+
+          
+  buildappprestiti:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v4
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: Prestiti/
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:PrestitiApp
+  buildapputenti:
+      runs-on: ubuntu-latest
+      steps:
+        -
+          name: Checkout
+          uses: actions/checkout@v4
+        -
+          name: Login to Docker Hub
+          uses: docker/login-action@v3
+          with:
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+        -
+          name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v3
+        -
+          name: Build and push
+          uses: docker/build-push-action@v5
+          with:
+            context: Utenti/App/
+            push: true
+            tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:UtentiApp
+  prestiti:
+        runs-on: ubuntu-latest
+        steps:
+          -
+            name: Checkout
+            uses: actions/checkout@v4
+          -
+            name: Login to Docker Hub
+            uses: docker/login-action@v3
+            with:
+              username: ${{ secrets.DOCKER_USERNAME }}
+              password: ${{ secrets.DOCKERHUB_TOKEN }}
+          -
+            name: Set up Docker Buildx
+            uses: docker/setup-buildx-action@v3
+          -
+            name: Build and push
+            uses: docker/build-push-action@v5
+            with:
+              context: Utenti/Db/
+              push: true
+              tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:UtentiDb
+      

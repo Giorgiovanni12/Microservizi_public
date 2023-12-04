@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/users: "true"
+    io.kompose.service: apputenti
+  name: apputenti
+spec:
+  containers:
+    - args:
+        - sh
+        - -c
+        - sleep 130s ; python3 ./utenti.py
+      image: giorgiova123/microservizi:UtentiApp
+      name: apputenti
+      ports:
+        - containerPort: 5000
+      resources: {}
+  restartPolicy: OnFailure
+status: {}

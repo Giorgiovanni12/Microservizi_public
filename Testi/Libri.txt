@@ -1,0 +1,19 @@
+Libri
+ID int primary key
+Titolo varchar(max)
+Autore varchar(max)
+Editore varchar(max)
+Genere varchar(max)
+CopieDisponibili int
+
+
+create database Libri
+go
+create table Libri(
+ID int primary key,
+Titolo varchar(max),
+Autore varchar(max),
+Editore varchar(max),
+Genere varchar(max),
+CopieDisponibili int)
+go 

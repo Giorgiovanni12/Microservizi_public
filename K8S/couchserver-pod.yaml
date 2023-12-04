@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.network/borrowings: "true"
+    io.kompose.service: couchserver
+  name: couchserver
+spec:
+  containers:
+    - env:
+        - name: COUCHDB_PASSWORD
+          value: giovanni
+        - name: COUCHDB_USER
+          value: admin
+      image: couchdb
+      name: couchserver
+      ports:
+        - containerPort: 5984
+      resources: {}
+      volumeMounts:
+        - mountPath: /opt/couchdb/data
+          name: couchserver-claim0
+  restartPolicy: OnFailure
+  volumes:
+    - name: couchserver-claim0
+      persistentVolumeClaim:
+        claimName: couchserver-claim0
+status: {}

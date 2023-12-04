@@ -1,0 +1,35 @@
+Prestiti
+
+Int id primary key 
+IdMatricola int
+IdLibro int
+DataPrestito Date
+DataRestituzione Date
+
+create database Prestiti
+go
+create table Prestiti(
+ID int primary key, 
+IdMatricola int,
+IdLibro int,
+DataPrestito Date,
+DataRestituzione Date,
+Copie int,)
+go
+
+'Id': str(document['_id']),
+            'IdMatricola': document['idmatricola'],
+            'IdLibro': document['idlibro'],
+            'DataPrestito': document['dataprestito'],
+            'DataRestituzione': document['idlibro'],
+            'Copie': document['copie'],
+
+
+{
+  "IdMatricola": "1",
+  "IdLibro": "1",
+  "DataPrestito": "11/09/2001",
+  "DataRestituzione": "1",
+  "Copie": "7"
+
+}

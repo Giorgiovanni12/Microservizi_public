@@ -1,0 +1,16 @@
+Utenti 
+ID int primary key
+Nome varchar(max)
+Cognome varchar(max)
+Mail varchar(max)
+Telefono int
+
+create database Utenti
+go
+create table Utente(
+ID int primary key,
+Nome varchar(max),
+Cognome varchar(max),
+Mail varchar(max),
+Telefono int)
+go
