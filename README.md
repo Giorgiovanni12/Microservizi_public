@@ -1,32 +1,32 @@
-Il progetto ha lo scopo di simulare il funzionamento di una biblioteca.
+The project aims to simulate the operation of a library.
 
-Mettendo assieme 8 microservizi diversi composti da queste caratteristiche: 
+By putting together 8 different microservices composed of these features: 
 
--AppLibri per eseguire operazioni CRUD sul db,viene anche usata come producer di kafka (manda anche una mail quando viene inserito un nuovo libro[usare questo che è gratis https://app.brevo.com/])
+-AppBooks to perform CRUD operations on the db,it is also used as a kafka producer (it also sends an email when a new book is entered[use this one which is free https://app.brevo.com/])
 
--AppUtenti sempre per eseguire operazioni CRUD al proprio db
+-AppUsers always to perform CRUD operations to their db
 
--AppPrestiti sempre per eseguire operazioni CRUD al proprio db
+-AppLenders always to perform CRUD operations to its own db
 
--DbLibri Db con all'interno tutti i libri
+-DbBooks Db with all the books inside.
 
--DbUtenti Db con all'interno tutti gli utenti
+-DbUsers Db with all users inside.
 
--DbPrestiti Db con all'interno tutti i prestiti
+-DbLoans Db with all loans inside.
 
--Kafka broker di messaggistica con lo scopo di avvisare l'utente nel momento in cui vengono eseguite alcune operazioni 
+-Kafka messaging broker with the purpose of alerting the user when certain operations are performed 
 
--AppConsumer serve per ricevere le notifiche dall AppLibri e stamparle sul terminale
+-AppConsumer is for the purpose of receiving notifications from the AppLibrary and printing them on the terminal
 
-Il progetto nel suo intero prevede:
+The project as a whole provides:
 
--CI/CD per pubblicare direttamente su Docker-hub le immagini ogni volta che viene eseguito un push sul repository e controllo del codice manualmente con pylint.
+-CI/CD for publishing images directly to Docker-hub whenever a push is made to the repository and checking the code manually with pylint.
 
--Logging con lo scopo di monitorare tutte le azioni da parte del container.I log vengono salvati all'interno dei container in un file separato.
+-Logging with the purpose of monitoring all actions by the container.The logs are saved inside the containers in a separate file.
 
--Testing attraverso la libreria request di python che prova ogni singola CRUD .
+-Testing through python's request library that tests each individual CRUD .
 
--Container utilizzo di dokcer e docker-compose per creare tutti i singoli container.Ho provato anche a creare con kompose i file di configurazione ma ho problemi con la vm :(
+-Container use of dokcer and docker-compose to create all the individual containers.I also tried creating with kompose the configuration files but I have problems with vm :(
 
 
 ![Screenshot 2023-11-15 19 59 37](https://github.com/Giorgiovanni12/microservizi/assets/129728209/4703f4f3-1fcb-45da-9dc1-b220c9083850)
