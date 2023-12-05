@@ -28,5 +28,4 @@ The project as a whole provides:
 
 -Container use of dokcer and docker-compose to create all the individual containers.I also tried creating with kompose the configuration files but I have problems with vm :(
 
-
-![Screenshot 2023-11-15 19 59 37](https://github.com/Giorgiovanni12/microservizi/assets/129728209/4703f4f3-1fcb-45da-9dc1-b220c9083850)
+![Screenshot 2023-12-05 15 28 03](https://github.com/Giorgiovanni12/Microservizi_public/assets/129728209/d1c41600-1580-4a1c-877f-a97f0c2eb1ec)
